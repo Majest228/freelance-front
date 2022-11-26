@@ -1,0 +1,41 @@
+.admin {
+  &-content {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 30px;
+    gap: 20px;
+    &__role {
+      input {
+        display: none;
+        & + label > .admin-content__role__item {
+          cursor: pointer;
+          width: 100px;
+          text-align: center;
+          border: 1px solid #d1d1d1;
+          border-radius: 22px;
+          p {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 130%;
+            color: #878787;
+          }
+        }
+        &:checked + label > .admin-content__role__item {
+          background: #e4ffed;
+          border: 1px solid #2cc961;
+          border-radius: 22px;
+          p {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 130%;
+            color: #2cc961;
+          }
+        }
+      }
+    }
+  }
+}

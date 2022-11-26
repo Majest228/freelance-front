@@ -1,0 +1,116 @@
+.home {
+  &-container {
+    max-width: 1260px;
+    margin: 0 auto;
+  }
+  &-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 130%;
+    color: #1a1a1a;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  &-about {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+  }
+  &-search {
+    margin-bottom: 20px;
+    border: 1px solid #d1d1d1;
+    border-radius: 15px;
+    max-width: 1260px;
+    width: 100%;
+    height: 70px;
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input {
+      border: none;
+      outline: none;
+      width: 1000px;
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      margin-right: 25px;
+    }
+  }
+  &-content {
+    display: flex;
+    &__left {
+      margin-right: 50px;
+      &__filter {
+        padding: 20px;
+        border: #1a1a1a solid 1px;
+        &__languages {
+          margin-bottom: 20px;
+          z-index: 99;
+        }
+      }
+    }
+  }
+}
+
+.custom-select__home {
+  &__control {
+    background-color: transparent !important;
+    border: 1px solid #d1d1d1 !important;
+    border-radius: 15px !important;
+    max-width: 1260px !important;
+    width: 100% !important;
+    height: 70px !important;
+    padding-left: 20px !important;
+    display: flex !important;
+  }
+  &__menu-list {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  &__indicator-separator {
+    display: none !important;
+  }
+  &__indicators {
+    cursor: pointer !important;
+  }
+  &__multi-value {
+    background: none !important;
+    border: 1px solid #93cbff !important;
+    border-radius: 8px !important;
+    width: 68px !important;
+    height: 36px !important;
+    position: relative;
+    margin-right: 31px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    padding-right: 7px !important;
+  }
+  &__multi-value__label {
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 13px !important;
+    line-height: 130% !important;
+    color: #2e85eb !important;
+  }
+  &__multi-value__remove {
+    position: absolute;
+    left: 70px;
+    width: 36px;
+    height: 36px;
+    &:hover {
+      background: none !important;
+      cursor: pointer;
+    }
+  }
+  &__group {
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+}

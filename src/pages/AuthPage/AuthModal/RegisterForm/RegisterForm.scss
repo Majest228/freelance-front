@@ -1,0 +1,155 @@
+.register {
+  &-content {
+    &__title {
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 140%;
+      color: #1a1a1a;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+    &__change {
+      margin-top: 30px;
+      button {
+        cursor: pointer;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 130%;
+        color: #2e85eb;
+        background: none;
+        border: none;
+      }
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__input {
+        &__roles {
+          margin-bottom: 30px;
+          gap: 20px;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          &__role {
+            input {
+              display: none;
+              & + label > .register-content__form__input__roles__role__item {
+                cursor: pointer;
+                padding: 18px 25px 20px;
+                border: 1px solid #d1d1d1;
+                border-radius: 22px;
+                p {
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 14px;
+                  line-height: 130%;
+                  color: #878787;
+                }
+              }
+              &:checked + label > .register-content__form__input__roles__role__item {
+                background: #e4ffed;
+                border: 1px solid #2cc961;
+                border-radius: 22px;
+                p {
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 14px;
+                  line-height: 130%;
+                  color: #2cc961;
+                }
+              }
+            }
+          }
+        }
+        &__login {
+          border: 1px solid #d1d1d1;
+          border-radius: 15px;
+          display: flex;
+          flex-direction: column;
+          width: 438px;
+          height: 85px;
+          &__content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 25px;
+          }
+          input {
+            border: none;
+            outline: none;
+            &::placeholder {
+              font-style: normal;
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 130%;
+              color: #878787;
+            }
+          }
+          label {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 130%;
+            color: #878787;
+          }
+        }
+        &__password {
+          margin-top: 30px;
+          border: 1px solid #d1d1d1;
+          border-radius: 15px;
+          display: flex;
+          flex-direction: column;
+          width: 438px;
+          height: 85px;
+          &__content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 25px;
+          }
+          input {
+            border: none;
+            outline: none;
+            &::placeholder {
+              font-style: normal;
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 130%;
+              color: #878787;
+            }
+          }
+          label {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 130%;
+            color: #878787;
+          }
+        }
+        &__submit {
+          text-align: center;
+          margin-top: 30px;
+          button {
+            cursor: pointer;
+            width: 438px;
+            height: 78px;
+            border: none;
+            background: #e4ffed;
+            border-radius: 15px;
+            padding: 26px 88px 29px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 130%;
+            color: #2cc961;
+          }
+        }
+      }
+    }
+  }
+}
