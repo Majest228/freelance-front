@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchLogin, fetchRegister, selectIsAuth } from '../../../../redux/slices/auth.js'
 import { useForm } from 'react-hook-form'
-import './RegisterForm.scss'
-import { fetchRoles } from '../../../../redux/slices/roles.js'
-
-const RegisterForm = ({ setModeReg }) => {
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchRoles } from '../../redux/slices/roles.js'
+import { fetchRegister } from '../../redux/slices/auth.js'
+import { Link, useNavigate } from 'react-router-dom'
+import './RegisterPage.scss'
+const RegisterPage = () => {
+  const navigate = useNavigate()
   const { register, handleSubmit } = useForm({
     defaultValues: {
       email: '',
@@ -26,9 +27,11 @@ const RegisterForm = ({ setModeReg }) => {
   const onSubmit = async (values) => {
     const data = await dispatch(fetchRegister(values))
     if (!data.payload) {
-      alert('Регистрация для лохов для лохов')
+      alert('Регистрация неудачная')
     } else {
       window.localStorage.setItem('user', data.payload)
+      window.localStorage.setItem('accessToken', data.payload.accessToken)
+      navigate('/')
       setModeReg(false)
     }
   }
@@ -41,28 +44,6 @@ const RegisterForm = ({ setModeReg }) => {
       <div className="register-content__form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="register-content__form__input">
-            <div className="register-content__form__input__roles">
-              {isRolesLoading ? (
-                <p>Идет загрузка...</p>
-              ) : (
-                roles.map((role) => (
-                  <div className="register-content__form__input__roles__role">
-                    <input
-                      type="radio"
-                      id={role.id}
-                      name="role"
-                      value={role.id}
-                      {...register('roleId', { required: 'Укажите почту' })}
-                    />
-                    <label htmlFor={role.id}>
-                      <div className="register-content__form__input__roles__role__item">
-                        <p>{role.name}</p>
-                      </div>
-                    </label>
-                  </div>
-                ))
-              )}
-            </div>
             <div className="register-content__form__input__login">
               <div className="register-content__form__input__login__content">
                 <input
@@ -85,17 +66,17 @@ const RegisterForm = ({ setModeReg }) => {
             </div>
             <div className="register-content__form__input__submit">
               <button value="Войти" type="submit">
-                Войти
+                Зарегистрироваться
               </button>
             </div>
           </div>
         </form>
         <div className="register-content__change">
-          <button onClick={() => setModeReg(false)}>Зарегистрироваться</button>
+          <Link to="/login">Есть аккаунт?</Link>
         </div>
       </div>
     </div>
   )
 }
 
-export default RegisterForm
+export default RegisterPage

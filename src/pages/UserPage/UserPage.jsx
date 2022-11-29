@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMe } from '../../redux/slices/users.js'
 import './UserPage.scss'
@@ -56,7 +56,22 @@ const UserPage = () => {
     setCurrentSelects(isMulti ? newSelect.map((c) => c.id) : newSelect.id)
   }
 
-  console.log(user)
+  const saveImage = async () => {
+    await axios.put('user/media', {
+      avatarPath: imageUrl,
+    })
+    dispatch(fetchMe())
+    setShowImage(false)
+  }
+
+  const handleChangeFile = async (e) => {
+    try {
+      const formData = new FormData()
+      const file = e.target.files[0]
+      formData.append('image', file)
+      await axios.post('media', formData).then((res) => setImageUrl(res.data.path))
+    } catch (e) {}
+  }
 
   return (
     <div className="user">
@@ -113,35 +128,44 @@ const UserPage = () => {
             Редактировать личные данные
           </button>
           {modal ? <Modal setModal={setModal} /> : ''}
-          {roleId === 'Сотрудник' ? (
-            <div>
-              <p className="user-paragraph">Ключевые навыки</p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault()
-                }}
-              >
-                <Select
-                  classNamePrefix="custom-select"
-                  value={getSelect()}
-                  isMulti={isMulti}
-                  onChange={onChange}
-                  options={options}
-                />
-              </form>
-              <div className="user-tags">
-                {!isTagsLoading
-                  ? tagsSelect.map((item) => (
-                      <div className="user-tag">
-                        <p className="user-text">{item.tag.name}</p>
-                      </div>
-                    ))
-                  : ''}
-              </div>
-              <button onClick={() => onSubmit()} className="user-button" type="submit">
-                Сохранить изменения
-              </button>
+          <div>
+            <p className="user-paragraph">Ключевые навыки</p>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+              }}
+            >
+              <Select
+                classNamePrefix="custom-select"
+                value={getSelect()}
+                isMulti={isMulti}
+                onChange={onChange}
+                options={options}
+              />
+            </form>
+            <div className="user-tags">
+              {!isTagsLoading
+                ? tagsSelect.map((item) => (
+                    <div className="user-tag">
+                      <p className="user-text">{item.tag.name}</p>
+                    </div>
+                  ))
+                : ''}
             </div>
+            <button onClick={() => onSubmit()} className="user-button" type="submit">
+              Сохранить изменения
+            </button>
+          </div>
+          <button onClick={() => setShowImage(true)}>Изменить аватарку</button>
+          {showImage ? (
+            <UserModel
+              setShowImage={setShowImage}
+              setImageUrl={setImageUrl}
+              showImage={showImage}
+              saveImage={saveImage}
+              handleChangeFile={handleChangeFile}
+              imageUrl={imageUrl}
+            />
           ) : (
             ''
           )}

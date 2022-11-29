@@ -21,7 +21,6 @@ const initialState = {
   user: {},
   status: null,
   statusGetMe: null,
-  roleId: {},
   workers: [],
   statusWorkers: null,
 }
@@ -48,7 +47,6 @@ const usersSlice = createSlice({
     [fetchMe.fulfilled]: (state, action) => {
       state.user = action.payload
       state.statusGetMe = 'loaded'
-      state.roleId = action.payload.role.name
     },
     [fetchMe.rejected]: (state) => {
       state.user = {}

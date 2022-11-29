@@ -1,4 +1,13 @@
-.register {
+.login {
+  position: relative;
+  &-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
   &-content {
     &__title {
       font-weight: 500;
@@ -36,7 +45,7 @@
           &__role {
             input {
               display: none;
-              & + label > .register-content__form__input__roles__role__item {
+              & + label > .login-content__form__input__roles__role__item {
                 cursor: pointer;
                 padding: 18px 25px 20px;
                 border: 1px solid #d1d1d1;
@@ -49,7 +58,7 @@
                   color: #878787;
                 }
               }
-              &:checked + label > .register-content__form__input__roles__role__item {
+              &:checked + label > .login-content__form__input__roles__role__item {
                 background: #e4ffed;
                 border: 1px solid #2cc961;
                 border-radius: 22px;
@@ -147,6 +156,48 @@
             font-size: 18px;
             line-height: 130%;
             color: #2cc961;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .login {
+    &-content {
+      &__title {
+      }
+      &__change {
+      }
+      &__form {
+        &__input {
+          &__roles {
+            &__role {
+            }
+          }
+          &__login {
+            margin: 0 auto;
+            border: 1px solid #d1d1d1;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            width: 338px;
+            height: 85px;
+          }
+          &__password {
+            margin: 30px auto;
+            border: 1px solid #d1d1d1;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            width: 338px;
+            height: 85px;
+          }
+          &__submit {
+            button {
+              width: 328px;
+            }
           }
         }
       }

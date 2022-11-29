@@ -47,7 +47,7 @@ const ProfilePage = () => {
                 </div>
               </div>
               <div className="profile-content__info__fields__tags">
-                <p>Список тэгов:</p>
+                <p className="profile-content__info__fields__tags__title">Список тэгов:</p>
                 {profile.tagSelect
                   ? profile.tagSelect.map((item) => (
                       <div className="profile-content__info__fields__tags__field">
@@ -61,11 +61,11 @@ const ProfilePage = () => {
               <div className="profile-content__info__fields__language">
                 <div className="profile-content__info__fields__language__field">
                   <span>Язык</span>
-                  <p>{profile.language.name}</p>
+                  {profile.language == undefined || null ? '' : <p>{profile.language.name}</p>}
                 </div>
                 <div className="profile-content__info__fields__language__field">
                   <span>Страна</span>
-                  <p>{profile.country.name}</p>
+                  {profile.country == undefined || null ? '' : <p>{profile.country.name}</p>}
                 </div>
               </div>
               <div className="profile-content__info__fields__language">

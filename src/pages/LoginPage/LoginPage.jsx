@@ -1,11 +1,13 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
-import './LoginForm.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchLogin, selectIsAuth } from '../../../../redux/slices/auth.js'
+import { fetchLogin, selectIsAuth } from '../../redux/slices/auth.js'
+import { useForm } from 'react-hook-form'
+import './LoginPage.scss'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
-const LoginForm = ({ setModeReg }) => {
-  const isAuth = useSelector(selectIsAuth)
+const Login = () => {
+  const navigate = useNavigate()
+  const { token } = useSelector((state) => state.auth)
   const { register, handleSubmit } = useForm({
     defaultValues: {
       email: '',
@@ -19,16 +21,18 @@ const LoginForm = ({ setModeReg }) => {
     const data = await dispatch(fetchLogin(values))
     if ('accessToken' in data.payload) {
       window.localStorage.setItem('accessToken', data.payload.accessToken)
+      navigate('/')
     } else {
       alert('Авторизация для лохов')
     }
   }
-  console.log(isAuth)
+
   return (
     <div className="login">
       <div className="login-content__title">
         <p>Авторизация</p>
       </div>
+
       <div className="login-content__form">
         <form onSubmit={handleSubmit(onSumbit)}>
           <div className="login-content__form__input">
@@ -60,11 +64,11 @@ const LoginForm = ({ setModeReg }) => {
           </div>
         </form>
         <div className="login-content__change">
-          <button onClick={() => setModeReg(true)}>Зарегистрироваться</button>
+          <Link to="/register">Зарегистрироваться</Link>
         </div>
       </div>
     </div>
   )
 }
 
-export default LoginForm
+export default Login

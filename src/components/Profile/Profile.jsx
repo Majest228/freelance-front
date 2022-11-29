@@ -15,7 +15,7 @@ const Profile = ({ item }) => {
             <div className="profile-page__login">
               <p> Логин - {item.login}</p>
               <div className="profile-page-tags">
-                <p>Стэк:</p>
+                <p className="profile-page-tags__title">Стэк:</p>
                 {item.tagSelect.map((tag, id) => (
                   <div className="profile-page-tags__tag" key={id}>
                     <p>{tag.tag.name} </p>

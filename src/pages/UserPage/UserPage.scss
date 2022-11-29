@@ -172,6 +172,7 @@
 }
 .custom-select {
   z-index: -1 !important;
+
   &__control {
     z-index: 1 !important;
     background-color: transparent !important;
@@ -185,7 +186,9 @@
   }
   &__menu-list {
     z-index: 1 !important;
-    display: flex !important;
+    &-item {
+      padding: 10px;
+    }
   }
   &__indicator-separator {
     z-index: 1 !important;
@@ -207,7 +210,6 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center;
-    padding-right: 7px !important;
   }
   &__multi-value__label {
     z-index: 1 !important;
@@ -229,9 +231,43 @@
       cursor: pointer;
     }
   }
-  &__group {
-    z-index: 1 !important;
-    display: flex !important;
-    justify-content: space-between !important;
+}
+
+@media screen and (max-width: 760px) {
+  .user {
+    z-index: 1;
+    &-title {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 130%;
+      color: #1a1a1a;
+      text-align: center;
+    }
+    &-button {
+      margin-left: 30px;
+    }
+    &-fields {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      &__field {
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        span {
+          margin-right: 20px;
+          font-size: 14px;
+        }
+        p {
+          padding: 0;
+          margin: 0;
+          font-size: 14px;
+          max-width: 200px;
+          width: 100%;
+        }
+      }
+    }
   }
 }

@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage.jsx'
 import ProfilePage from './pages/ProfilePage/ProfilePage.jsx'
-import AuthPage from './pages/AuthPage/AuthPage.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectIsAuth } from './redux/slices/auth.js'
 import { useEffect } from 'react'
@@ -14,6 +13,8 @@ import UsersPage from './pages/AdminPage/UsersPage/UsersPage.jsx'
 import LanguagePage from './pages/AdminPage/LanguagePage/LanguagePage.jsx'
 import CountryPage from './pages/AdminPage/CountryPage/CountryPage.jsx'
 import TagPage from './pages/AdminPage/TagPage/TagPage.jsx'
+import Login from './pages/LoginPage/LoginPage.jsx'
+import RegisterPage from './pages/RegisterPage/RegisterPage.jsx'
 
 const App = () => {
   const isAuth = useSelector(selectIsAuth)
@@ -26,8 +27,8 @@ const App = () => {
   const { token } = useSelector((state) => state.auth)
   const { user, statusUser, roleId } = useSelector((state) => state.users)
 
-  const onlyWorker = (Component) => {
-    if (user.role.name == 'Сотрудник') {
+  function privateRoute(Component) {
+    if (!user.isAdmin) {
       return <PageNotFound />
     }
     return <Component />
@@ -37,13 +38,35 @@ const App = () => {
     console.log(isAuth)
   }, [isAuth])
 
+  // if (token) {
+  //   return (
+  //     <Layout>
+  //       <Routes>
+  //         <Route path="/" element={<HomePage />} />
+  //         <Route path="/user/:id" element={<ProfilePage />} />
+  //         <Route path="/login" element={<AuthPage />} />
+  //         <Route path="/profile" element={<UserPage />} />
+  //         <Route path="/admin-panel" element={privateRoute(AdminPage)} />
+  //         <Route path="/admin-panel/users" element={privateRoute(UsersPage)} />
+  //         <Route path="/admin-panel/languages" element={privateRoute(LanguagePage)} />
+  //         <Route path="/admin-panel/countries" element={privateRoute(CountryPage)} />
+  //         <Route path="/admin-panel/tags" element={privateRoute(TagPage)} />
+  //       </Routes>
+  //     </Layout>
+  //   )
+  // } else {
+  //   return (
+  //     <Layout>
+  //       <HomePage />
+  //     </Layout>
+  //   )
+  // }
   if (token) {
     return (
       <Layout>
         <Routes>
-          <Route path="/" element={onlyWorker(<HomePage />)} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/user/:id" element={<ProfilePage />} />
-          <Route path="/login" element={<AuthPage />} />
           <Route path="/profile" element={<UserPage />} />
           <Route path="/admin-panel" element={privateRoute(AdminPage)} />
           <Route path="/admin-panel/users" element={privateRoute(UsersPage)} />
@@ -54,7 +77,16 @@ const App = () => {
       </Layout>
     )
   } else {
-    return <AuthPage />
+    return (
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/user/:id" element={<ProfilePage />} />
+        </Routes>
+      </Layout>
+    )
   }
 }
 

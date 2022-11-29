@@ -15,7 +15,7 @@
     display: block;
     width: 600px;
     max-width: 100%;
-    height: 900px;
+    height: 700px;
     max-height: 100%;
     position: fixed;
     z-index: 100;
@@ -262,13 +262,15 @@
       &__close {
         position: absolute;
         top: -5px;
-        right: 5px;
+        right: 35px;
         background: none;
         border: none;
         cursor: pointer;
         display: block;
         margin: 0;
         padding: 6px;
+        color: black;
+        font-size: 16px;
         &::before {
           position: absolute;
           top: 5px;
@@ -276,7 +278,7 @@
           content: '';
           width: 14px;
           height: 1px;
-          background-color: #d1d1d1;
+          background-color: black;
           transform: rotate(-45deg);
           border-radius: 6px;
         }
@@ -287,7 +289,7 @@
           content: '';
           width: 14px;
           height: 1px;
-          background-color: #d1d1d1;
+          background-color: black;
           transform: rotate(45deg);
           border-radius: 6px;
         }
@@ -324,4 +326,68 @@ span {
 
 .modal::-webkit-scrollbar {
   background-color: #2e85eb;
+}
+
+@media screen and (max-width: 960px) {
+  .modal {
+    &-content {
+      padding: 20px;
+      display: block;
+      width: 600px;
+      max-width: 100%;
+      height: 600px;
+      max-height: 100%;
+      position: fixed;
+      z-index: 100;
+      //left: 50%;
+      //top: 50%;
+      //transform: translate(-50%, -50%);
+      background: white;
+      box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .modal {
+    &-content {
+      padding: 20px;
+      display: block;
+      width: 500px;
+      max-width: 100%;
+      height: 600px;
+      max-height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .modal {
+    width: 100vw;
+    height: 100vh;
+    &-content {
+      padding: 20px;
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      &__upgrade {
+        position: relative;
+        h2 {
+        }
+        &__close {
+          position: absolute;
+          top: 15px;
+          right: 65px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          display: block;
+          margin: 0;
+          padding: 6px;
+          color: black;
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }

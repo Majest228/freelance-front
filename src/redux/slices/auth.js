@@ -41,6 +41,11 @@ const authSlice = createSlice({
       state.status = 'error'
       state.data = null
     },
+    [fetchRegister.fulfilled]: (state, action) => {
+      state.status = 'loaded'
+      state.data = action.payload
+      state.token = action.payload.accessToken
+    },
   },
 })
 

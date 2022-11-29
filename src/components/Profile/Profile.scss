@@ -7,8 +7,7 @@ a {
   &-tags {
     display: flex;
     align-items: center;
-
-    p {
+    &__title {
       margin-right: 10px;
     }
     &__tag {
@@ -91,6 +90,76 @@ a {
         line-height: 130%;
 
         color: #1a1a1a;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .profile-page {
+    margin-top: 40px;
+    height: 203px;
+    max-width: 700px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .profile-page {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    height: 203px;
+    max-width: 500px;
+    width: 100%;
+    &__items {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .profile-page {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    height: 203px;
+    max-width: 300px;
+    width: 100%;
+    &-tags {
+      display: flex;
+      align-items: center;
+      &__title {
+        display: none;
+      }
+      &__tag {
+        margin-right: 15px;
+        border: 1px solid #93cbff;
+        border-radius: 8px;
+        width: 46px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 130%;
+          color: #2e85eb;
+        }
+      }
+    }
+    &__items {
+      display: block;
+    }
+    &-content {
+      display: flex;
+      align-items: center;
+      &__left {
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 15px;
+        }
       }
     }
   }

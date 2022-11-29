@@ -66,3 +66,235 @@
     }
   }
 }
+
+@media screen and (max-width: 960px) {
+  .profile {
+    margin-top: 50px;
+    &-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    &-tags {
+      &__tag {
+        margin-left: 20px;
+        &:last-child {
+        }
+      }
+    }
+    &-content {
+      display: flex;
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+      }
+      &__links {
+        display: flex;
+        a {
+          margin-left: 50px;
+        }
+      }
+      &__info {
+        &__fields {
+          &__main {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            &__field {
+              margin-left: 50px;
+            }
+          }
+          &__tags {
+            margin-top: 35px;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            margin-left: 50px;
+            align-items: center;
+            &__field {
+              margin-left: 20px;
+              width: 68px;
+              text-align: center;
+              border: 1px solid #93cbff;
+              border-radius: 8px;
+            }
+          }
+          &__language {
+            margin-top: 35px;
+            margin-left: 50px;
+            display: flex;
+            &__field {
+              margin-right: 50px;
+            }
+          }
+          &__about {
+            margin-top: 35px;
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .profile {
+    margin-top: 50px;
+    &-container {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    &-tags {
+      &__tag {
+        margin-left: 20px;
+        &:last-child {
+        }
+      }
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        margin-bottom: 120px;
+        display: block;
+        text-align: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+      }
+      &__links {
+        display: flex;
+        a {
+          margin-left: 50px;
+        }
+      }
+      &__info {
+        &__fields {
+          &__main {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            &__field {
+              margin-left: 50px;
+            }
+          }
+          &__tags {
+            margin-top: 35px;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            margin-left: 50px;
+            align-items: center;
+            p {
+              font-size: 12px;
+            }
+            &__field {
+              margin-left: 20px;
+              width: 68px;
+              text-align: center;
+              border: 1px solid #93cbff;
+              border-radius: 8px;
+            }
+          }
+          &__language {
+            margin-top: 35px;
+            margin-left: 50px;
+            display: flex;
+            &__field {
+              margin-right: 50px;
+            }
+          }
+          &__about {
+            margin-top: 35px;
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .profile {
+    margin-top: 50px;
+    &-container {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+    &-tags {
+      &__tag {
+        margin-left: 20px;
+        &:last-child {
+        }
+      }
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        margin-bottom: 120px;
+        display: block;
+        text-align: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+      }
+      &__links {
+        display: flex;
+        a {
+          margin-left: 50px;
+        }
+      }
+      &__info {
+        &__fields {
+          &__main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            &__field {
+              display: flex;
+              margin-left: 50px;
+              align-items: center;
+              span {
+                margin-right: 30px;
+              }
+            }
+          }
+          &__tags {
+            margin-top: 35px;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            margin-left: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+            &__title {
+              display: none;
+            }
+            &__field {
+              margin-left: 20px;
+              width: 68px;
+              text-align: center;
+              border: 1px solid #93cbff;
+              border-radius: 8px;
+            }
+          }
+          &__language {
+            margin-top: 35px;
+            margin-left: 50px;
+            display: flex;
+            &__field {
+              margin-right: 50px;
+            }
+          }
+          &__about {
+            margin-top: 35px;
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+  }
+}
